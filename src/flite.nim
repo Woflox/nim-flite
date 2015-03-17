@@ -140,9 +140,9 @@ proc remove*(f: Features; name: cstring): cint {.
 
 
 #Wave functions
-
+const bytesPerSample = 2
 proc `[]`*(self: Wave, index: int): cshort =
-  cast[ptr cshort](cast[int](self.samples) + index)[]
+  cast[ptr cshort](cast[int](self.samples) + index * bytesPerSample)[]
 
 proc newWave*(): Wave {.
   importc: "new_wave" .}
