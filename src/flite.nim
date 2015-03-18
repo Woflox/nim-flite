@@ -147,44 +147,13 @@ proc `[]`*(self: Wave, index: int): cshort =
 proc newWave*(): Wave {.
   importc: "new_wave" .}
 
-proc copyWave*(w: Wave): Wave {.
-  importc: "copy_wave" .}
-
 proc delete*(val: Wave) {.
   importc: "delete_wave" .}
 
-proc concat*(dest: Wave; src: Wave): Wave {.
-  importc: "concat_wave" .}
+#kal
 
-proc save*(w: Wave; filename: cstring; kind: cstring): cint {.
-  importc: "cst_wave_save" .}
-
-proc saveRiff*(w: Wave; filename: cstring): cint {.
-  importc: "cst_wave_save_riff" .}
-
-proc saveRaw*(w: Wave; filename: cstring): cint {.
-  importc: "cst_wave_save_raw" .}
-
-proc appendRiff*(w: Wave; filename: cstring): cint {.
-  importc: "cst_wave_append_riff" .}
-
-proc load*(w: Wave; filename: cstring; kind: cstring): cint {.
-  importc: "cst_wave_load" .}
-
-proc loadRiff*(w: Wave; filename: cstring): cint {.
-  importc: "cst_wave_load_riff" .}
-
-proc loadRaw*(w: Wave; filename: cstring; bo: cstring; sample_rate: cint): cint {.
-  importc: "cst_wave_load_raw" .}
-
-proc resize*(w: Wave; samples: cint; num_channels: cint) {.
-  importc: "cst_wave_resize" .}
-
-proc resample*(w: Wave; sample_rate: cint) {.
-  importc: "cst_wave_resample" .}
-
-proc rescale*(w: Wave; factor: cint) {.
-  importc: "cst_wave_rescale" .}
+proc registerCmuUsKal*(voxdir: cstring): Voice {.
+  importc: "register_cmu_us_kal" .}
 
 
 {.pop.}
