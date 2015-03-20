@@ -144,16 +144,7 @@ const bytesPerSample = 2
 proc `[]`*(self: Wave, index: int): cshort =
   cast[ptr cshort](cast[int](self.samples) + index * bytesPerSample)[]
 
-proc newWave*(): Wave {.
-  importc: "new_wave" .}
-
 proc delete*(val: Wave) {.
   importc: "delete_wave" .}
-
-#kal
-
-proc registerCmuUsKal*(voxdir: cstring): Voice {.
-  importc: "register_cmu_us_kal" .}
-
 
 {.pop.}
